@@ -19,9 +19,43 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  )
     rgb(var(--background-start-rgb));
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1280px) {
+  body {
+    font-size: 18px;
+  }
 }
