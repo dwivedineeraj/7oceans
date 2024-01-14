@@ -11,7 +11,6 @@ export default async function Students() {
     const fetchStudents = async () => {
       const rawStudents: Student[] = await getAllStudents()
       const studentsWithSelection = rawStudents.map(student => ({ ...student, selected: false }));
-      console.log(studentsWithSelection)
       setStudents(studentsWithSelection)
     }
     fetchStudents()
@@ -38,8 +37,8 @@ export default async function Students() {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-gray-100 text-black">
-      <h1 className="text-3xl font-bold mb-4">Students</h1>
+    <div className="container mx-auto mt-8 p-4">
+      <h1 className="text-3xl font-bold mb-4">Enquiry</h1>
 
       <div className="mb-4">
         <button className="bg-blue-500 text-white px-4 py-2 mr-2" onClick={handleSelectAll}>
@@ -52,16 +51,7 @@ export default async function Students() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {students.map((user) => (
-        <div className='flex'>
-          <div className='w-50 p-5'><input
-              type="checkbox"
-              id={`checkbox-${user.id}`}
-              className=""
-              checked={user.selected}
-              onChange={() => handleCheckboxChange(user.id)}
-            />
-          </div>
-          <div key={user.id} className="card">
+          <div key={user.id} className="bg-white p-4 rounded shadow-md">
             <div className="flex items-center mb-2">
               <img
                 src={user.avatar}
@@ -75,11 +65,17 @@ export default async function Students() {
             <div className="text-gray-600 mt-2">{user.numbers}</div>
             <div className="text-gray-600">{user.batch}</div>
             <div className="text-gray-600">{user.createdAt}</div>
-            <div className="absolute top-0 right-5 font-bold items-center">
-              <button>...</button>
-            </div>
+            <input
+              type="checkbox"
+              id={`checkbox-${user.id}`}
+              className="mt-2"
+              checked={user.selected}
+              onChange={() => handleCheckboxChange(user.id)}
+            />
+            <label htmlFor={`checkbox-${user.id}`} className="ml-2 text-gray-600">
+              Select
+            </label>
           </div>
-        </div>
         ))}
       </div>
     </div>

@@ -1,8 +1,8 @@
 'use client'
 import { Inter } from 'next/font/google'
-import '../../globals.css'
+import '../../../globals.css'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'; // Importing from next/navigation
+import { usePathname, useSearchParams } from 'next/navigation'; // Importing from next/navigation
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,9 +11,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  let pathname = usePathname()
-  const match = pathname!.match(/students\/\d+/)!
-  pathname = pathname.substring(0, match.index! + match[0].length)
+  const pathname = usePathname();
+
   return (
     <>
       <ul className="flex p-4 space-x-4 bg-gray-800 text-white overflow-scroll">

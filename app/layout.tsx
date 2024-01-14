@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} font-sans`}>
-        <ul className="flex p-4 space-x-4 bg-gray-800 text-white overflow-scroll">
+        <ul className="flex p-4 space-x-10 bg-black text-gray-500 overflow-scroll">
           <li className="hover:underline">
             <Link href="/students">Students</Link>
           </li>

@@ -59,3 +59,7 @@ html {
     font-size: 18px;
   }
 }
+
+.card {
+  @apply bg-gray-300 p-4 rounded shadow-md col-span-1 relative flex-1;
+}
