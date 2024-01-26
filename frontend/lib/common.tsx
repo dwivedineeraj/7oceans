@@ -1,6 +1,7 @@
 // Function to get subjects
-export function getSubjects(): Promise<any[]> {
-    return fetch(process.env.apiUrl as string)
+export async function getSubjects(): Promise<Subject[]> {
+    console.log(process.env)
+    return await fetch(process.env.apiUrl as string + '/subjects')
         .then(response => response.json())
         .then(data => {
             // Process the data here
@@ -13,10 +14,8 @@ export function getSubjects(): Promise<any[]> {
 }
 
 // Function to get pipelines
-export function getPipelines(): Promise<string[]> {
-    const apiUrl = process.env.API_ADDRESS; // Replace API_ADDRESS with the actual environment variable name
-
-    return fetch(process.env.apiUrl as string)
+export async function getPipelines(): Promise<Pipeline[]> {
+    return await fetch(process.env.apiUrl as string + '/pipelines')
         .then(response => response.json())
         .then(data => {
             // Process the data here
@@ -29,10 +28,8 @@ export function getPipelines(): Promise<string[]> {
 }
 
 // Function to get leads
-export function getLeads(): Promise<string[]> {
-    const apiUrl = process.env.API_ADDRESS; // Replace API_ADDRESS with the actual environment variable name
-
-    return fetch(process.env.apiUrl as string)
+export async function getLeads(): Promise<Lead[]> {
+    return await fetch(process.env.apiUrl as string + '/leads')
         .then(response => response.json())
         .then(data => {
             // Process the data here

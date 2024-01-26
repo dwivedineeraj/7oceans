@@ -19,19 +19,19 @@ export default function RootLayout({
     <>
     <ul className="flex p-4 space-x-10 bg-black text-gray-500 overflow-scroll">
           <li className="hover:underline">
-            <Link href="enquiry/pipeline">Pipeline</Link>
+            <Link href="/enquiry/pipeline">Pipeline</Link>
           </li>
           <li className="hover:underline">
-            <Link href="enquiry/leads">Leads</Link>
+            <Link href="/enquiry/leads">Leads</Link>
           </li>
           <li className="hover:underline">
-            <Link href="enquiry/tasks">Tasks</Link>
+            <Link href="/enquiry/tasks">Tasks</Link>
           </li>
           <li className="hover:underline">
-            <Link href="enquiry/guardians">Guardians</Link>
+            <Link href="/enquiry/guardians">Guardians</Link>
           </li>
           <li className="hover:underline">
-            <Link href="enquiry/notifications">Notifications</Link>
+            <Link href="/enquiry/notifications">Notifications</Link>
           </li>
         </ul>
       {children}

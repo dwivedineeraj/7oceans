@@ -57,6 +57,8 @@ interface Lead {
     "guardianEmail"?: string,
     "gender": string,
     "avatar": string,
+    'pipelineId', string,
+    'stageId': string,
     "activities": Activity[],
 }
 
