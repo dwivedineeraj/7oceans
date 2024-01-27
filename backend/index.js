@@ -6,7 +6,7 @@ const FarmerController = require("./controllers/farmers");
 const CropController = require("./controllers/crops")
 const mongoose = require("mongoose")
 
-require('dotenv').config(); // Import dotenv package
+require('dotenv').config();
 const mongoUrl = process.env.MONGO_URL; // Get MongoDB URL from .env file
 mongoose.connect(mongoUrl);
 

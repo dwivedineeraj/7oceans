@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
 import Link from 'next/link'
+import ReduxProvider from '@/redux/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,22 +20,22 @@ export default function RootLayout({
     <>
     <ul className="flex p-4 space-x-10 bg-black text-gray-500 overflow-scroll">
           <li className="hover:underline">
-            <Link href="/enquiry/pipeline">Pipeline</Link>
+            Pipeline
           </li>
           <li className="hover:underline">
-            <Link href="/enquiry/leads">Leads</Link>
+            Leads
           </li>
           <li className="hover:underline">
-            <Link href="/enquiry/tasks">Tasks</Link>
+            Tasks
           </li>
           <li className="hover:underline">
-            <Link href="/enquiry/guardians">Guardians</Link>
+            Guardians
           </li>
           <li className="hover:underline">
-            <Link href="/enquiry/notifications">Notifications</Link>
+            Notifications
           </li>
         </ul>
-      {children}
+      <ReduxProvider>{children}</ReduxProvider>
     </>
   )
 }

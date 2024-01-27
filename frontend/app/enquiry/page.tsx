@@ -1,23 +1,15 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { getLeads, getPipelines, getSubjects } from '@/lib/common'
-
+import { useGetLeadsQuery, useGetPipelinesQuery, useGetSubjectsQuery } from '@/redux/features/leadsSlice';
+import Loading from '../loading';
 
 export default async function Students() {
-  const [leads, setLeads] = useState<Lead[]>([])
-  const [subjects, setSubjects] = useState<Subject[]>([])
-  const [pipelines, setPipelines] = useState<Pipeline[]>([])
 
-  useEffect(() => {
-    const getEnquiryData = async () => {
-      const rawLeads = await getLeads()
-      setLeads(await getLeads())
-      setPipelines(await getPipelines())
-      setSubjects(await getSubjects())
-    }
-    getEnquiryData()
-  }, []);
+  let {data: leads = [], error: errorl, isLoading: isLoadingLeads} = useGetLeadsQuery();
+  let {data: pipelines = [], error: errorp, isLoading: isLoadingPipelines} = useGetPipelinesQuery();
+  let {data: subjects = [], error: errors, isLoading: isLoadingSubjects} = useGetSubjectsQuery();
+  
 
   // const handleCheckboxChange = (studentId: string) => {
   //   const updatedStudents = students.map((student) =>
@@ -45,33 +37,9 @@ export default async function Students() {
 
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {/* {students.map((user) => (
-          <div key={user.id} className="bg-white p-4 rounded shadow-md">
-            <div className="flex items-center mb-2">
-              <img
-                src={user.avatar}
-                alt={`Avatar for ${user.name}`}
-                className="w-8 h-8 rounded-full mr-2"
-              />
-              <Link href={`/students/${user.id}`} className="text-blue-500 hover:underline">
-                {user.name}
-              </Link>
-            </div>
-            <div className="text-gray-600 mt-2">{user.numbers}</div>
-            <div className="text-gray-600">{user.batch}</div>
-            <div className="text-gray-600">{user.createdAt}</div>
-            <input
-              type="checkbox"
-              id={`checkbox-${user.id}`}
-              className="mt-2"
-              checked={user.selected}
-              onChange={() => handleCheckboxChange(user.id)}
-            />
-            <label htmlFor={`checkbox-${user.id}`} className="ml-2 text-gray-600">
-              Select
-            </label>
-          </div>
-        ))} */}
+        {isLoadingPipelines? <Loading></Loading>
+        : errorp? <div>Error</div>
+        : <>fine</>}
       </div>
     </div>
   );
