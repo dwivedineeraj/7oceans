@@ -18,23 +18,6 @@ export default function RootLayout({
 }) {
   return (
     <>
-    <ul className="flex p-4 space-x-10 bg-black text-gray-500 overflow-scroll">
-          <li className="hover:underline">
-            Pipeline
-          </li>
-          <li className="hover:underline">
-            Leads
-          </li>
-          <li className="hover:underline">
-            Tasks
-          </li>
-          <li className="hover:underline">
-            Guardians
-          </li>
-          <li className="hover:underline">
-            Notifications
-          </li>
-        </ul>
       <ReduxProvider>{children}</ReduxProvider>
     </>
   )
